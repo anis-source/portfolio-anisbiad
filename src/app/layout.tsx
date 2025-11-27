@@ -45,6 +45,8 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            {/* AJOUTEZ ANALYTICS ICI */}
+            <Analytics />
             <SpeedInsights />
           </LanguageProvider>
         </ThemeProvider>
@@ -54,17 +56,4 @@ export default function RootLayout({
 }
 
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="fr" className={cn("antialiased", sans.variable)}>
-      <body>
-        <GlobalContextProvider>
-          {children}
-        </GlobalContextProvider>
-        {/* 2. AJOUTEZ CETTE LIGNE DANS LE BODY, APRÈS children */}
-        <Analytics />
-        <SpeedInsights />
-      </body>
-    </html>
-  );
-}
+
