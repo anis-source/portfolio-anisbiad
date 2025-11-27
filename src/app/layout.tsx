@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -19,9 +20,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anis Biad | Architecte & Program Manager",
   description: "Portfolio of Anis Biad - Engineer Architect & Program Manager",
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
@@ -46,6 +44,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <SpeedInsights />
           </LanguageProvider>
         </ThemeProvider>
       </body>
