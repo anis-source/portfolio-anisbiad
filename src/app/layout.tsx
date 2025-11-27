@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Analytics } from '@vercel/analytics/react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,6 +48,22 @@ export default function RootLayout({
             <SpeedInsights />
           </LanguageProvider>
         </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr" className={cn("antialiased", sans.variable)}>
+      <body>
+        <GlobalContextProvider>
+          {children}
+        </GlobalContextProvider>
+        {/* 2. AJOUTEZ CETTE LIGNE DANS LE BODY, APRÈS children */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
